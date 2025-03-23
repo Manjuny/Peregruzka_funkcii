@@ -116,7 +116,7 @@ T max_array_diag(T a[][cols], int rows)//поиск максимума для г
 			if (a[i][j+n] > max)
 				max = a[i][j+n];
 		}
-		n++
+		n++;
 	}
 	return max;
 }
@@ -132,12 +132,15 @@ T min_array(T a[][cols], int rows)
 	}
 	return min;
 }
-void gen_array(T a[][cols], int rows)
+template <typename T, int cols, int axis_z>
+void gen_array(T a[][cols][axis_z], int rows)
 {
-	std::cout << typeid(a[0][0]).name() << std::endl;
+	std::cout << typeid(a[0][0][0]).name() << std::endl;
 	for (int i = 0; i < rows; i++) {
 		for (int j = 0; j < cols; j++) {
-			a[i][j] = rand() % 101;
+			for (int h = 0; h < cols; h++) {
+				a[i][j][h] = rand() % 101;
+			}
 		}
 	}
 }
